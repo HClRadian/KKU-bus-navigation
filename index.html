@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Bus Stop Map</title>
+    <title>Bus Stop Selector</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,35 +37,46 @@
             padding: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+        .bus-stop-button {
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="route-container">
-        <h1>แผนที่จุดรอรถบัสแบบโต้ตอบ</h1>
+        <h1>เลือกจุดจอดรถ</h1>
+
+        <div class="bus-stop-button">
+            <button data-stop="A" data-top="30%" data-left="50%">จุดจอดรถ A</button>
+            <button data-stop="B" data-top="60%" data-left="40%">จุดจอดรถ B</button>
+            <button data-stop="C" data-top="80%" data-left="70%">จุดจอดรถ C</button>
+        </div>
+
         <div class="map-container">
             <img src="path-to-your-image/bus-stop-map.jpg" alt="แผนที่จุดรอรถบัส">
-            <div class="marker" data-info="จุดรอรถบัส A" style="top: 30%; left: 50%;"></div>
-            <div class="marker" data-info="จุดรอรถบัส B" style="top: 60%; left: 40%;"></div>
-            <div class="marker" data-info="จุดรอรถบัส C" style="top: 80%; left: 70%;"></div>
             <div id="info-box" class="info-box"></div>
         </div>
     </div>
 
     <script>
-        // ฟังก์ชันสำหรับแสดงข้อมูลเพิ่มเติมเมื่อคลิกที่จุด
-        document.querySelectorAll('.marker').forEach(marker => {
-            marker.addEventListener('click', function() {
+        // ฟังก์ชันสำหรับแสดงข้อมูลเพิ่มเติมเมื่อคลิกที่ปุ่ม
+        document.querySelectorAll('.bus-stop-button button').forEach(button => {
+            button.addEventListener('click', function() {
                 const infoBox = document.getElementById('info-box');
-                infoBox.innerHTML = this.getAttribute('data-info');
-                infoBox.style.top = this.style.top;
-                infoBox.style.left = this.style.left;
+                const stopName = this.getAttribute('data-stop');
+                const top = this.getAttribute('data-top');
+                const left = this.getAttribute('data-left');
+
+                infoBox.innerHTML = `ข้อมูลเพิ่มเติมสำหรับจุดจอดรถ ${stopName}`;
+                infoBox.style.top = top;
+                infoBox.style.left = left;
                 infoBox.style.display = 'block';
             });
         });
 
         // คลิกที่อื่นเพื่อซ่อนข้อมูลเพิ่มเติม
         document.addEventListener('click', function(e) {
-            if (!e.target.classList.contains('marker')) {
+            if (!e.target.matches('.bus-stop-button button')) {
                 document.getElementById('info-box').style.display = 'none';
             }
         });
