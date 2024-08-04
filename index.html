@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Route and Map</title>
+    <title>Interactive Bus Stop Map</title>
     <style>
-        /* CSS สำหรับการออกแบบ */
         body {
             font-family: Arial, sans-serif;
         }
@@ -14,59 +13,62 @@
             padding: 20px;
             border: 1px solid #ccc;
         }
-        .step {
-            margin-bottom: 20px;
-        }
-        .station {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin: 5px 0;
-        }
-        .station .transfer {
-            font-style: italic;
-            color: #666;
-        }
         .map-container {
-            margin: 20px 0;
+            position: relative;
             text-align: center;
         }
         .map-container img {
             max-width: 100%;
             height: auto;
-            border: 0px solid #ccc;
+        }
+        .marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .info-box {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <div class="route-container">
-        <h1>เส้นทางและแผนที่จุดรอรถบัส</h1>
-
-        <div class="step">
-            <h3>เริ่มต้นจาก สถานี A</h3>
-            <div class="station">
-                <p>ขึ้นรถบัสสาย 101</p>
-            </div>
-        </div>
-
-        <div class="step">
-            <h3>ต่อรถบัสที่ สถานี B</h3>
-            <div class="station">
-                <p>เปลี่ยนไปขึ้นรถบัสสาย 102</p>
-                <p class="transfer">ต่อรถบัสใช้เวลา 5 นาที</p>
-            </div>
-        </div>
-
-        <div class="step">
-            <h3>ปลายทาง สถานี C</h3>
-            <div class="station">
-                <p>ลงจากรถบัสที่สถานีสุดท้าย</p>
-            </div>
-        </div>
-
+        <h1>แผนที่จุดรอรถบัสแบบโต้ตอบ</h1>
         <div class="map-container">
-            <h2>แผนที่จุดรอรถบัส</h2>
-            <img src="map.jpg" alt="แผนที่จุดรอรถบัส">
+            <img src="path-to-your-image/bus-stop-map.jpg" alt="แผนที่จุดรอรถบัส">
+            <div class="marker" data-info="จุดรอรถบัส A" style="top: 30%; left: 50%;"></div>
+            <div class="marker" data-info="จุดรอรถบัส B" style="top: 60%; left: 40%;"></div>
+            <div class="marker" data-info="จุดรอรถบัส C" style="top: 80%; left: 70%;"></div>
+            <div id="info-box" class="info-box"></div>
         </div>
     </div>
+
+    <script>
+        // ฟังก์ชันสำหรับแสดงข้อมูลเพิ่มเติมเมื่อคลิกที่จุด
+        document.querySelectorAll('.marker').forEach(marker => {
+            marker.addEventListener('click', function() {
+                const infoBox = document.getElementById('info-box');
+                infoBox.innerHTML = this.getAttribute('data-info');
+                infoBox.style.top = this.style.top;
+                infoBox.style.left = this.style.left;
+                infoBox.style.display = 'block';
+            });
+        });
+
+        // คลิกที่อื่นเพื่อซ่อนข้อมูลเพิ่มเติม
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('marker')) {
+                document.getElementById('info-box').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
