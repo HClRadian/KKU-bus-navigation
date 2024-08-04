@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>เว็บไซต์ของฉัน</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">เกี่ยวกับเรา</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <p>This is a sample website created using GitHub Pages.</p>
+        <section id="home">
+            <h2>หน้าแรก</h2>
+            <p>นี่คือหน้าแรกของเว็บไซต์ของเรา.</p>
+        </section>
+        <section id="about">
+            <h2>เกี่ยวกับเรา</h2>
+            <p>ข้อมูลเกี่ยวกับเราและสิ่งที่เราทำ.</p>
+        </section>
+        <section id="contact">
+            <h2>ติดต่อ</h2>
+            <p>ข้อมูลการติดต่อของเรา.</p>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 My Website</p>
+        <p>&copy; 2024 เว็บไซต์ของฉัน</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>
