@@ -1,49 +1,59 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="path/to/your/image.jpg" alt="แผนที่">
-    <img src="map.jpg" alt="แผนที่">
-    <img src="images/my-image.jpg" alt="แผนที่" width="1000" height="600">
-    <title>เว็บไซต์ของฉัน</title>
+    <title>Bus Route and Transfers</title>
     <style>
-    img {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        height: auto;
-    }
-</style>
-
+        /* CSS สำหรับการออกแบบ */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .route-container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .step {
+            margin-bottom: 20px;
+        }
+        .station {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        .station .transfer {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>ยินดีต้อนรับสู่เว็บไซต์ของฉัน</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">หน้าแรก</a></li>
-                <li><a href="#about">เกี่ยวกับเรา</a></li>
-                <li><a href="#contact">ติดต่อ</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h2>หน้าแรก</h2>
-            <p>นี่คือหน้าแรกของเว็บไซต์ของเรา.</p>
-        </section>
-        <section id="about">
-            <h2>เกี่ยวกับเรา</h2>
-            <p>ข้อมูลเกี่ยวกับเราและสิ่งที่เราทำ.</p>
-        </section>
-        <section id="contact">
-            <h2>ติดต่อ</h2>
-            <p>ข้อมูลการติดต่อของเรา.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 เว็บไซต์ของฉัน</p>
-    </footer>
+    <div class="route-container">
+        <h1>เส้นทางและสถานีต่อรถบัส</h1>
+
+        <div class="step">
+            <h3>เริ่มต้นจาก สถานี A</h3>
+            <div class="station">
+                <p>ขึ้นรถบัสสาย 101</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>ต่อรถบัสที่ สถานี B</h3>
+            <div class="station">
+                <p>เปลี่ยนไปขึ้นรถบัสสาย 102</p>
+                <p class="transfer">ต่อรถบัสใช้เวลา 5 นาที</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>ปลายทาง สถานี C</h3>
+            <div class="station">
+                <p>ลงจากรถบัสที่สถานีสุดท้าย</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
