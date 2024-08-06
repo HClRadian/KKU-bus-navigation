@@ -4,9 +4,7 @@
   <title>แผนที่มหาวิทยาลัยขอนแก่น</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    #map {
-      height: 500px;
-    }
+    #map { height: 500px; }
   </style>
 </head>
 <body>
@@ -16,32 +14,20 @@
   <script>
     // กำหนดตำแหน่งของมหาวิทยาลัยขอนแก่น
     var kkuCoords = [16.4754, 102.8286];
-    
-    // สร้างแผนที่
     var map = L.map('map').setView(kkuCoords, 15);
-
-    // เพิ่มแผนที่พื้นฐาน
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
     }).addTo(map);
 
-    // เพิ่มจุดจอดรถและจุดสำคัญ
-    var stops = [
-      { name: 'สถานี A', coords: [16.476, 102.829] },
-      { name: 'สถานี B', coords: [16.478, 102.832] },
-      // เพิ่มจุดสำคัญอื่นๆ
-    ];
-
-    stops.forEach(function(stop) {
-      L.marker(stop.coords).addTo(map).bindPopup(stop.name);
-    });
-
-    // กำหนดขอบเขตการแสดงแผนที่
-    var bounds = L.latLngBounds(
-      [16.4700, 102.8200],  // จุดล่างซ้าย
-      [16.4800, 102.8400]   // จุดบนขวา
-    );
-    map.fitBounds(bounds);
+    // โหลดข้อมูลจากไฟล์ JSON
+    fetch('points.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(point => {
+          L.marker(point.coords).addTo(map).bindPopup(point.name);
+        });
+      })
+      .catch(error => console.error('Error:', error));
   </script>
 </body>
 </html>
