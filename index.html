@@ -3,80 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Stop Selector</title>
+    <title>Interactive Map with Clickable Points</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-        .route-container {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
         .map-container {
             position: relative;
-            text-align: center;
+            display: inline-block;
+            max-width: 100%;
         }
         .map-container img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
         }
-        .marker {
+        .point {
             position: absolute;
             width: 20px;
             height: 20px;
             background-color: red;
             border-radius: 50%;
             cursor: pointer;
+            transform: translate(-50%, -50%);
         }
         .info-box {
-            display: none;
             position: absolute;
-            background-color: #fff;
+            background-color: white;
             border: 1px solid #ccc;
             padding: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .bus-stop-button {
-            margin: 10px;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="route-container">
-        <h1>เลือกจุดจอดรถ</h1>
-
-        <div class="bus-stop-button">
-            <button data-stop="A" data-top="30%" data-left="50%">จุดจอดรถ A</button>
-            <button data-stop="B" data-top="60%" data-left="40%">จุดจอดรถ B</button>
-            <button data-stop="C" data-top="80%" data-left="70%">จุดจอดรถ C</button>
-        </div>
-
-        <div class="map-container">
-            <img src="path-to-your-image/bus-stop-map.jpg" alt="แผนที่จุดรอรถบัส">
-            <div id="info-box" class="info-box"></div>
-        </div>
+    <div class="map-container">
+        <img src="path-to-your-map-image/map.jpg" alt="Map">
+        <div class="point" style="top: 30%; left: 50%;" data-info="Point A"></div>
+        <div class="point" style="top: 60%; left: 40%;" data-info="Point B"></div>
+        <div class="point" style="top: 80%; left: 70%;" data-info="Point C"></div>
+        <div id="info-box" class="info-box"></div>
     </div>
 
     <script>
-        // ฟังก์ชันสำหรับแสดงข้อมูลเพิ่มเติมเมื่อคลิกที่ปุ่ม
-        document.querySelectorAll('.bus-stop-button button').forEach(button => {
-            button.addEventListener('click', function() {
+        // ฟังก์ชันสำหรับแสดงข้อมูลเพิ่มเติมเมื่อคลิกที่จุด
+        document.querySelectorAll('.point').forEach(point => {
+            point.addEventListener('click', function() {
                 const infoBox = document.getElementById('info-box');
-                const stopName = this.getAttribute('data-stop');
-                const top = this.getAttribute('data-top');
-                const left = this.getAttribute('data-left');
+                const info = this.getAttribute('data-info');
 
-                infoBox.innerHTML = `ข้อมูลเพิ่มเติมสำหรับจุดจอดรถ ${stopName}`;
-                infoBox.style.top = top;
-                infoBox.style.left = left;
+                // แสดงข้อมูลและตำแหน่ง info-box ใกล้กับจุดที่คลิก
+                infoBox.innerHTML = info;
+                infoBox.style.top = this.style.top;
+                infoBox.style.left = this.style.left;
                 infoBox.style.display = 'block';
             });
         });
 
         // คลิกที่อื่นเพื่อซ่อนข้อมูลเพิ่มเติม
         document.addEventListener('click', function(e) {
-            if (!e.target.matches('.bus-stop-button button')) {
+            if (!e.target.classList.contains('point')) {
                 document.getElementById('info-box').style.display = 'none';
             }
         });
