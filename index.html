@@ -14,8 +14,33 @@
     </header>
     <main>
         <h2>Explore KKU</h2>
+
+        <!-- Dropdowns for selecting start and end locations -->
+        <label for="start">ต้นทาง:</label>
+        <select id="start">
+            <option value="hospital">โรงพยาบาลศรีนครินทร์</option>
+            <option value="heartCenter">ศูนย์หัวใจสิริกิติ์</option>
+            <option value="complex">คอมเพล็กซ์</option>
+            <option value="sportsCenter">ศูนย์กีฬาแห่งชาติ</option>
+            <option value="gate1">ประตู 1</option>
+            <!-- Add more locations here -->
+        </select>
+
+        <label for="end">ปลายทาง:</label>
+        <select id="end">
+            <option value="hospital">โรงพยาบาลศรีนครินทร์</option>
+            <option value="heartCenter">ศูนย์หัวใจสิริกิติ์</option>
+            <option value="complex">คอมเพล็กซ์</option>
+            <option value="sportsCenter">ศูนย์กีฬาแห่งชาติ</option>
+            <option value="gate1">ประตู 1</option>
+            <!-- Add more locations here -->
+        </select>
+
+        <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
+
         <!-- Div to hold the map -->
         <div id="map" style="height: 500px;"></div>
+
         <ul>
             <li><a href="#" onclick="focusLocation('hospital')">โรงพยาบาลศรีนครินทร์</a></li>
             <li><a href="#" onclick="focusLocation('heartCenter')">ศูนย์หัวใจสิริกิติ์</a></li>
@@ -27,6 +52,8 @@
     </main>
     <!-- Add Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Add Leaflet Routing Machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
