@@ -38,6 +38,33 @@ for (var key in locations) {
     }
 }
 
+// Routing control variable to store the route
+var routingControl;
+
+// Function to calculate and display the route
+function calculateRoute() {
+    var startLocation = document.getElementById('start').value;
+    var endLocation = document.getElementById('end').value;
+
+    if (locations[startLocation] && locations[endLocation]) {
+        // Remove previous route if exists
+        if (routingControl) {
+            map.removeControl(routingControl);
+        }
+
+        // Add routing control to calculate the route between selected locations
+        routingControl = L.Routing.control({
+            waypoints: [
+                L.latLng(locations[startLocation].coords),
+                L.latLng(locations[endLocation].coords)
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
+    } else {
+        alert("กรุณาเลือกทั้งต้นทางและปลายทาง");
+    }
+}
+
 // Function to focus the map on a specific location
 function focusLocation(locationKey) {
     if (locations[locationKey]) {
