@@ -1,9 +1,0 @@
-const routeData = [
-    { step: 1, start: "สถานี A", bus: "101", transfer: "" },
-    { step: 2, start: "สถานี B", bus: "102", transfer: "ใช้เวลา 5 นาที" },
-    { step: 3, start: "สถานี C", bus: "", transfer: "สถานีสุดท้าย" }
-];
-
-routeData.forEach(route => {
-    console.log(`Step ${route.step}: จาก ${route.start}, ขึ้นรถบัสสาย ${route.bus}, ${route.transfer}`);
-});
