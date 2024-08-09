@@ -1,33 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>แผนที่มหาวิทยาลัยขอนแก่น</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    #map { height: 500px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKU Navigation</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>แผนที่มหาวิทยาลัยขอนแก่น</h1>
-  <div id="map"></div>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    // กำหนดตำแหน่งของมหาวิทยาลัยขอนแก่น
-    var kkuCoords = [16.4754, 102.8286];
-    var map = L.map('map').setView(kkuCoords, 15);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-    }).addTo(map);
-
-    // โหลดข้อมูลจากไฟล์ JSON
-    fetch('points.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(point => {
-          L.marker(point.coords).addTo(map).bindPopup(point.name);
-        });
-      })
-      .catch(error => console.error('Error:', error));
-  </script>
+    <header>
+        <h1>KKU Campus Navigation</h1>
+    </header>
+    <main>
+        <h2>Explore KKU</h2>
+        <ul>
+            <li><a href="locations/hospital.html">โรงพยาบาลศรีนครินทร์</a></li>
+            <li><a href="locations/sports-center.html">ศูนย์กีฬาแห่งชาติ</a></li>
+            <!-- Add more links for other locations -->
+        </ul>
+    </main>
 </body>
 </html>
