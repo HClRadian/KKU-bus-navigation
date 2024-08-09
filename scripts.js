@@ -1,11 +1,11 @@
-// Initialize the map and set view to KKU's general location
+// Initialize the map and set the view to Khon Kaen University coordinates
 var map = L.map('map').setView([16.4746, 102.8222], 15);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
 }).addTo(map);
 
-// Locations and their coordinates
+// Define locations and their coordinates
 var locations = {
     hospital: {
         coords: [16.4737, 102.8287],
@@ -27,7 +27,7 @@ var locations = {
         coords: [16.4760, 102.8233],
         name: 'ประตู 1'
     }
-    // Add more locations with similar structure
+    // Add more locations similarly
 };
 
 // Add markers to the map for each location
