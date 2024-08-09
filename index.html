@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KKU Navigation</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -12,11 +13,17 @@
     </header>
     <main>
         <h2>Explore KKU</h2>
+        <div id="map" style="height: 500px;"></div>
         <ul>
-            <li><a href="locations/hospital.html">โรงพยาบาลศรีนครินทร์</a></li>
-            <li><a href="locations/sports-center.html">ศูนย์กีฬาแห่งชาติ</a></li>
-            <!-- Add more links for other locations -->
+            <li><a href="#" onclick="focusLocation('hospital')">โรงพยาบาลศรีนครินทร์</a></li>
+            <li><a href="#" onclick="focusLocation('heartCenter')">ศูนย์หัวใจสิริกิติ์</a></li>
+            <li><a href="#" onclick="focusLocation('complex')">คอมเพล็กซ์</a></li>
+            <li><a href="#" onclick="focusLocation('sportsCenter')">ศูนย์กีฬาแห่งชาติ</a></li>
+            <li><a href="#" onclick="focusLocation('gate1')">ประตู 1</a></li>
+            <!-- Add more locations here -->
         </ul>
     </main>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
