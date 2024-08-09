@@ -1,59 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KKU Navigation</title>
-    <!-- Add Leaflet CSS -->
+    <title>ระบบต่อรถ มข.</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>KKU Campus Navigation</h1>
-    </header>
-    <main>
-        <h2>Explore KKU</h2>
+    <div id="map" style="width: 100%; height: 80vh;"></div>
 
-        <!-- Dropdowns for selecting start and end locations -->
-        <label for="start">ต้นทาง:</label>
+    <div class="controls">
+        <label for="start">เลือกสถานีต้นทาง:</label>
         <select id="start">
-            <option value="hospital">โรงพยาบาลศรีนครินทร์</option>
-            <option value="heartCenter">ศูนย์หัวใจสิริกิติ์</option>
-            <option value="complex">คอมเพล็กซ์</option>
-            <option value="sportsCenter">ศูนย์กีฬาแห่งชาติ</option>
-            <option value="gate1">ประตู 1</option>
-            <!-- Add more locations here -->
+            <option value="B1">B1</option>
+            <option value="R1">R1</option>
+            <!-- รายการอื่นๆ -->
         </select>
-
-        <label for="end">ปลายทาง:</label>
+        
+        <label for="end">เลือกสถานีปลายทาง:</label>
         <select id="end">
-            <option value="hospital">โรงพยาบาลศรีนครินทร์</option>
-            <option value="heartCenter">ศูนย์หัวใจสิริกิติ์</option>
-            <option value="complex">คอมเพล็กซ์</option>
-            <option value="sportsCenter">ศูนย์กีฬาแห่งชาติ</option>
-            <option value="gate1">ประตู 1</option>
-            <!-- Add more locations here -->
+            <option value="B1">B1</option>
+            <option value="R1">R1</option>
+            <!-- รายการอื่นๆ -->
         </select>
 
-        <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
+        <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
+    </div>
 
-        <!-- Div to hold the map -->
-        <div id="map" style="height: 500px;"></div>
-
-        <ul>
-            <li><a href="#" onclick="focusLocation('hospital')">โรงพยาบาลศรีนครินทร์</a></li>
-            <li><a href="#" onclick="focusLocation('heartCenter')">ศูนย์หัวใจสิริกิติ์</a></li>
-            <li><a href="#" onclick="focusLocation('complex')">คอมเพล็กซ์</a></li>
-            <li><a href="#" onclick="focusLocation('sportsCenter')">ศูนย์กีฬาแห่งชาติ</a></li>
-            <li><a href="#" onclick="focusLocation('gate1')">ประตู 1</a></li>
-            <!-- Add more locations here -->
-        </ul>
-    </main>
-    <!-- Add Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <!-- Add Leaflet Routing Machine -->
-    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
