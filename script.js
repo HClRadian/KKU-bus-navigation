@@ -99,7 +99,7 @@ var stations = {
     "อุทยานการเกษตร2":[16.466749, 102.815335]
     // เพิ่มเติมตามความต้องการ
 };
-mid = "คณะเกษตรศาสตร์2";
+<pre>{{mid = "คณะเกษตรศาสตร์2"}}</pre>
 // แสดงสถานีบนแผนที่
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
