@@ -2,7 +2,6 @@ var map = L.map('map').setView([16.4734, 102.824], 14); // พิกัดใน
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
-mid = คณะเกษตรศาสตร์2;
 // ตำแหน่งของสถานี
 var stations = {
     "7-11 หลังหอ 8":[16.480184, 102.811889],
@@ -100,8 +99,7 @@ var stations = {
     "อุทยานการเกษตร2":[16.466749, 102.815335]
     // เพิ่มเติมตามความต้องการ
 };
-
-
+mid = "คณะเกษตรศาสตร์2";
 // แสดงสถานีบนแผนที่
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
