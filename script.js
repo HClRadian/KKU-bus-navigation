@@ -110,7 +110,7 @@ for (var key in stations) {
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
-
+    var mid = document.getElementById("mid").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
     var midCoords = stations[mid]
@@ -120,6 +120,12 @@ function calculateRoute() {
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
+                L.latLng(midCoords[0],midCoords[1])
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
+                L.Routing.control({
+            waypoints: [
                 L.latLng(midCoords[0],midCoords[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
