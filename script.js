@@ -1,8 +1,8 @@
-// script.js
-var map = L.map('map').setView([16.4734, 102.824], 14); // พิกัดในมหาวิทยาลัยขอนแก่น
+var map = L.map('map').setView([16.4734, 102.824], 14); // กำหนดพิกัดที่จะแสดงในแผนที่
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
+
 
 // ตำแหน่งของสถานี
 var stations = {
@@ -101,20 +101,20 @@ var stations = {
     // เพิ่มเติมตามความต้องการ
 };
 
-// แสดงสถานีบนแผนที่
+
+// แสดงสถานีบนแผนที่โดยใช้ marker
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
 
 function calculateRoute() {
-    var start = document.getElementById("start").value;
-    var end = document.getElementById("end").value;
+    var start = document.getElementById("start").value; // รับค่าจาก dropdown สถานีต้นทาง
+    var end = document.getElementById("end").value; // รับค่าจาก dropdown สถานีปลายทาง
 
-    alert("เส้นทางจาก " + start + " ถึง " + end);
     var startCoords = stations[start];
     var endCoords = stations[end];
     if (startCoords && endCoords) {
-        // เพิ่มเส้นทางในแผนที่
+        // คำนวณเส้นทางจากสถานีต้นทางไปสถานีปลายทาง
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
@@ -122,10 +122,6 @@ function calculateRoute() {
             ],
             routeWhileDragging: true
         }).addTo(map);
-
-        alert("เส้นทางจาก " + start + " ถึง " + end);
-    } 
-    else {
-        alert("ไม่พบสถานีที่เลือก");
-    };
+    }
 }
+
