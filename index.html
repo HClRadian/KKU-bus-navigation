@@ -210,23 +210,3 @@
     <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
     </div>
 
-    <div id="map"></div>
-    <div id="routeDetails"></div>
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script>
-var startSelect = document.getElementById('start');
-        var endSelect = document.getElementById('end');
-        
-        for (var station in stations) {
-            var option = document.createElement('option');
-            option.value = station;
-            option.textContent = station;
-            startSelect.appendChild(option);
-
-            var optionClone = option.cloneNode(true);
-            endSelect.appendChild(optionClone);
-        }
-</body>
-</html>
