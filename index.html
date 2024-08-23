@@ -218,8 +218,55 @@
         , "แฟลตป่าดู่2", "โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น", "ศูนย์ประชุมกาญจนาภิเษก", "ประตูศรีฐาน", "คุ้มศรีฐาน"
         , "พิพิธภัณฑ์ธรรมชาติวิทยา", "แฟลตป่าดู่1", "อาคารจอดรถสถานีชาร์จไฟฟ้า"]
         };
-        <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
-    </div>
-    <script src="script.js"></script>
+ function createRoute(startStation, endStation) {
+            let routeFound = false;
+            for (const bus in routes) {
+                const route = routes[bus];
+                if (route.includes(startStation) && route.includes(endStation)) {
+                    L.Routing.control({
+                        waypoints: route
+                            .slice(route.indexOf(startStation), route.indexOf(endStation) + 1)
+                            .map(station => L.latLng(stations[station])),
+                        lineOptions: {
+                            styles: [{ color: getBusColor(bus), weight: 6 }]
+                        },
+                        createMarker: function() { return null; }
+                    }).addTo(map);
+                    routeFound = true;
+                    break;
+                }
+            }
+            return routeFound;
+        }
+
+        function getBusColor(bus) {
+            switch (bus) {
+                case 'bus1': return 'blue';
+                case 'bus2': return 'yellow';
+                case 'bus3': return 'red';
+                case 'bus4': return 'green';
+                default: return 'black';
+            }
+        }
+
+        // การคำนวณเส้นทางและการเปลี่ยนรถ
+        function navigate(startStation, endStation) {
+            // หากสถานีต้นทางและปลายทางอยู่ในเส้นทางเดียวกัน
+            if (createRoute(startStation, endStation)) {
+                console.log("ไปสถานีปลายทางได้โดยไม่ต้องเปลี่ยนรถ");
+            } else {
+                // หากจำเป็นต้องเปลี่ยนรถ
+                for (const transferStation in stations) {
+                    if (createRoute(startStation, transferStation) && createRoute(transferStation, endStation)) {
+                        console.log(`ต้องเปลี่ยนรถที่สถานี ${transferStation}`);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // การนำทางจากสถานี A ไปยังสถานี F
+        navigate("A", "F");
+    </script>
 </body>
 </html>
