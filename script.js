@@ -112,8 +112,8 @@ function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
 
-    var startCoords = stations[หอพัก 8 หลัง];
-    var endCoords = stations[ประตูศรีฐาน];
+    var startCoords = stations["หอพัก 8 หลัง"];
+    var endCoords = stations["ประตูศรีฐาน"];
   if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
         L.Routing.control({
