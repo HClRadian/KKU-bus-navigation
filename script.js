@@ -101,33 +101,57 @@ var stations = {
     // เพิ่มเติมตามความต้องการ
 };
 
+// ฟังก์ชันคำนวณเส้นทางพร้อมเปลี่ยนรถ
+function calculateMultiRoute(start, end) {
+    var startRoute = null;
+    var endRoute = null;
 
+    // หาว่ารถบัสไหนผ่านสถานีเริ่มต้นและปลายทาง
+    for (var bus in routes) {
+        if (routes[bus].includes(start)) startRoute = bus;
+        if (routes[bus].includes(end)) endRoute = bus;
+    }
 
-// แสดงสถานีบนแผนที่
-for (var key in stations) {
-    L.marker(stations[key]).addTo(map).bindPopup(key);
+    if (startRoute && endRoute) {
+        if (startRoute === endRoute) {
+            // หากสถานีอยู่ในเส้นทางเดียวกัน
+            createRoute([start, end], startRoute);
+        } else {
+            // หาเส้นทางที่มีสถานีเชื่อมต่อระหว่างสองเส้นทาง
+            for (var transferStation of routes[startRoute]) {
+                if (routes[endRoute].includes(transferStation)) {
+                    createRoute([start, transferStation], startRoute);
+                    createRoute([transferStation, end], endRoute);
+                    break;
+                }
+            }
+        }
+    } else {
+        alert("ไม่พบเส้นทางที่เชื่อมต่อกันระหว่างสถานีเริ่มต้นและปลายทาง");
+    }
 }
 
-function calculateRoute() {
-    var start = document.getElementById("start").value;
-    var end = document.getElementById("end").value;
-
-    var startCoords = stations[start];
-    var endCoords = stations[end];
-    
-    if (startCoords && endCoords) {
-        // เพิ่มเส้นทางในแผนที่
-        L.Routing.control({
-            waypoints: [
-                L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(endCoords[0], endCoords[1])
-            ],
-            routeWhileDragging: true
-        }).addTo(map);
-    } 
-    else {
-        alert("ไม่พบสถานีที่เลือก");
-    };
+// ฟังก์ชันสร้างเส้นทางบนแผนที่
+function createRoute(stations, bus) {
+    var waypoints = stations.map(station => L.latLng(stations[station][0], stations[station][1]));
+    L.Routing.control({
+        waypoints: waypoints,
+        lineOptions: {
+            styles: [{ color: getBusColor(bus), weight: 6 }]
+        }
+    }).addTo(map);
 }
+
+// ฟังก์ชันเลือกสีเส้นทางตามรถบัส
+function getBusColor(bus) {
+    switch(bus) {
+        case "bus1": return "blue";
+        case "bus2": return "yellow";
+        case "bus3": return "red";
+        case "bus4": return "green";
+        default: return "black";
+    }
+}
+
 
 
