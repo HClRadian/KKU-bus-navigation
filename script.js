@@ -121,4 +121,3 @@ function calculateRoute() {
  //   else {
  //       alert("ไม่พบสถานีที่เลือก");
  //   };
-}
