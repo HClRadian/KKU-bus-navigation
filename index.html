@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบต่อรถ มข.</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 </head>
 <body>
     <div id="map" style="width: 100%; height: 80vh;"></div>
@@ -67,7 +67,7 @@
             <option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>
             <option value="คอมเพล็กซ์">คอมเพล็กซ์</option>
             <option value="หออินเตอร์">หออินเตอร์</option>
-            <option value="สนามยิงปืน">สนามยิงปืน</option>
+            <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
             <option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>
             <option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>
             <option value="หอในชาย 8">หอในชาย 8</option>
@@ -77,7 +77,7 @@
             <option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>
             <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
             <option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>
-            <option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>
+            <option value="คณะเภสัชศาสตร์">คณะเภสัชศาสตร์</option>
             <option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>
             <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
             <option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>
@@ -90,6 +90,7 @@
             <option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>
             <option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>
             <option value="KKBS">KKBS</option>
+            <option value="คณะการสื่อสารมวลชน">คณะการสื่อสารมวลชน</option>
             <option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>
             <option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>
             <option value="ลานจอดรถหอพัก 8 หลัง">ลานจอดรถหอพัก 8 หลัง</option>
@@ -104,16 +105,15 @@
             <option value="พิมานคอนโด">พิมานคอนโด</option>
             <option value="หอในชาย 9">หอในชาย 9</option>
             <option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>
-            <option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>
+            <option value="อาคารเรียนรวม 3">อาคารเรียนรวม 3</option>
             <option value="โรงอาหาร U-center">โรงอาหาร U-center</option>
             <option value="บ้านพักสบาย">บ้านพักสบาย</option>
-            <option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>
             <!-- รายการอื่นๆ -->
         </select>
         
         <label for="end">เลือกสถานีปลายทาง:</label>
         <select id="end">
-            <option value="สระพลาสติก">สระพลาสติก</option>
+          <option value="สระพลาสติก">สระพลาสติก</option>
             <option value="ที่พักญาติ">ที่พักญาติ</option>
             <option value="หอพักนักศึกษาแพทย์">หอพักนักศึกษาแพทย์</option>
             <option value="คณะแพทย์ศาสตร์">คณะแพทย์ศาสตร์</option>
@@ -164,7 +164,7 @@
             <option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>
             <option value="คอมเพล็กซ์">คอมเพล็กซ์</option>
             <option value="หออินเตอร์">หออินเตอร์</option>
-            <option value="สนามยิงปืน">สนามยิงปืน</option>
+            <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
             <option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>
             <option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>
             <option value="หอในชาย 8">หอในชาย 8</option>
@@ -174,7 +174,7 @@
             <option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>
             <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
             <option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>
-            <option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>
+            <option value="คณะเภสัชศาสตร์">คณะเภสัชศาสตร์</option>
             <option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>
             <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
             <option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>
@@ -187,6 +187,7 @@
             <option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>
             <option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>
             <option value="KKBS">KKBS</option>
+            <option value="คณะการสื่อสารมวลชน">คณะการสื่อสารมวลชน</option>
             <option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>
             <option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>
             <option value="ลานจอดรถหอพัก 8 หลัง">ลานจอดรถหอพัก 8 หลัง</option>
@@ -201,12 +202,14 @@
             <option value="พิมานคอนโด">พิมานคอนโด</option>
             <option value="หอในชาย 9">หอในชาย 9</option>
             <option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>
-            <option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>
+            <option value="อาคารเรียนรวม 3">อาคารเรียนรวม 3</option>
             <option value="โรงอาหาร U-center">โรงอาหาร U-center</option>
             <option value="บ้านพักสบาย">บ้านพักสบาย</option>
-            <option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>
             <!-- รายการอื่นๆ -->
         </select>
-    <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
-    </div>
 
+        <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
