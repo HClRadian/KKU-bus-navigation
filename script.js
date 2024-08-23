@@ -119,6 +119,7 @@ function calculateRoute() {
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
+                L.latLng(stations[0],stations[คณะเกษตรศาสตร์2]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
