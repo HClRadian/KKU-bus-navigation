@@ -111,5 +111,21 @@ function calculateRoute() {
     var end = document.getElementById("end").value;
 
     alert("เส้นทางจาก " + start + " ถึง " + end);
-    // เพิ่มฟังก์ชันการคำนวณเส้นทางต่อรถที่นี่
+    var startCoords = stations[start];
+    var endCoords = stations[end];
+    if (startCoords && endCoords) {
+        // เพิ่มเส้นทางในแผนที่
+        L.Routing.control({
+            waypoints: [
+                L.latLng(startCoords[0], startCoords[1]),
+                L.latLng(endCoords[0], endCoords[1])
+            ],
+            routeWhileDragging: true
+        }).addTo(map);
+
+        alert("เส้นทางจาก " + start + " ถึง " + end);
+    } else {
+        alert("ไม่พบสถานีที่เลือก");
+    }
+}
 }
