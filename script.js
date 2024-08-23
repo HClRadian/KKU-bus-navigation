@@ -2,7 +2,7 @@ var map = L.map('map').setView([16.4734, 102.824], 14); // พิกัดใน
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
-
+mid = คณะเกษตรศาสตร์2;
 // ตำแหน่งของสถานี
 var stations = {
     "7-11 หลังหอ 8":[16.480184, 102.811889],
@@ -106,7 +106,6 @@ var stations = {
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
-mid = คณะเกษตรศาสตร์2;
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
@@ -120,18 +119,12 @@ function calculateRoute() {
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(midCoords[0],midCoords[1])
-            ],
-            routeWhileDragging: true
-        }).addTo(map);
-                L.Routing.control({
-            waypoints: [
-                L.latLng(midCoords[0],midCoords[1]),
+                L.latLng(midCoords[0], midCoords[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
         }).addTo(map);
-    } 
+
     else {
         alert("ไม่พบสถานีที่เลือก");
     };
