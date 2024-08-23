@@ -124,7 +124,8 @@ function calculateRoute() {
         }).addTo(map);
 
         alert("เส้นทางจาก " + start + " ถึง " + end);
-    } else {
+    } 
+    else {
         alert("ไม่พบสถานีที่เลือก");
-    }
+    };
 }
