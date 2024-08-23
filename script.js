@@ -1,7 +1,3 @@
-                L.latLng(midCoords[0], midCoords[1]),
-    var mid = document.getElementById("คณะเกษตรศาสตร์2").value;
-    var midCoords = stations[mid];
-
 var map = L.map('map').setView([16.4734, 102.824], 14); // พิกัดในมหาวิทยาลัยขอนแก่น
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
