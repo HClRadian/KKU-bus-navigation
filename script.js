@@ -99,7 +99,6 @@ var stations = {
     "อุทยานการเกษตร2":[16.466749, 102.815335]
     // เพิ่มเติมตามความต้องการ
 };
-<pre>{{mid = "คณะเกษตรศาสตร์2"}}</pre>
 // แสดงสถานีบนแผนที่
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
@@ -107,7 +106,7 @@ for (var key in stations) {
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
-    var mid = document.getElementById("mid").value;
+    var mid = document.getElementById("คณะเกษตรศาสตร์2").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
     var midCoords = stations[mid];
