@@ -115,7 +115,7 @@ function calculateRoute() {
     var startCoords = stations[start];
     var endCoords = stations[end];
     
-    if (startCoords && endCoords) {
+  /*  if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
         L.Routing.control({
             waypoints: [
@@ -124,7 +124,19 @@ function calculateRoute() {
             ],
             routeWhileDragging: true
         }).addTo(map);
-    } 
+    } */
+    if (startCoords && endCoords){
+         L.Routing.control({
+            waypoints: [
+                L.latLng(startCoords[0], startCoords[1]),
+                L.latLng(endCoords[0], endCoords[คณะเกษตรศาสตร์2])
+            ],routeWhileDragging: true
+                waypoints: [
+                L.latLng(startCoords[0], startCoords[คณะเกษตรศาสตร์2]),
+                L.latLng(endCoords[คณะเกษตรศาสตร์2], endCoords[ประตูศรีฐาน])
+            ],
+                         routeWhileDragging: true
+        }).addTo(map);
     else {
         alert("ไม่พบสถานีที่เลือก");
     };
