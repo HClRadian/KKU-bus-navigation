@@ -113,13 +113,14 @@ function calculateRoute() {
 
     var startCoords = stations[start];
     var endCoords = stations[end];
+    var midCoords = stations[mid]
     
     if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(stations[0],stations[คณะเกษตรศาสตร์2]),
+                L.latLng(midCoords[0],midCoords[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
