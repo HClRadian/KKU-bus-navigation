@@ -105,17 +105,15 @@ for (var key in stations) {
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
-    var mid = document.getElementById("คณะเกษตรศาสตร์2").value;
+
     var startCoords = stations[start];
     var endCoords = stations[end];
-    var midCoords = stations[mid];
     
     if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
         L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(midCoords[0], midCoords[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
