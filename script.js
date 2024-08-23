@@ -113,7 +113,7 @@ function calculateRoute() {
     var mid = document.getElementById("mid").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
-    var midCoords = stations[mid]
+    var midCoords = stations[mid];
     
     if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
