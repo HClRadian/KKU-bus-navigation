@@ -109,11 +109,11 @@ for (var key in stations) {
 }
 
 function calculateRoute() {
-    var start = document.getElementById("หอพัก 8 หลัง").value;
-    var end = document.getElementById("คณะเกษตรศาสตร์2").value;
+    var start = document.getElementById("start").value;
+    var end = document.getElementById("end").value;
 
-    var startCoords = stations[หอพัก 8 หลัง];
-    var endCoords = stations[คณะเกษตรศาสตร์2];
+    var startCoords = stations[start];
+    var endCoords = stations[end];
   if (startCoords && endCoords) {
         // เพิ่มเส้นทางในแผนที่
         L.Routing.control({
