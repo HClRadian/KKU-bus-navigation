@@ -106,7 +106,7 @@ var stations = {
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
-
+mid = คณะเกษตรศาสตร์2;
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
