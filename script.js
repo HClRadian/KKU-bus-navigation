@@ -122,8 +122,8 @@ function calculateRoute() {
         routingControl = L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
                 L.latLng(mandatoryStopCoords2[0], mandatoryStopCoords2[1]),
+                L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true,
