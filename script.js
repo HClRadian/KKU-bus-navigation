@@ -101,6 +101,8 @@ var stations = {
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
+var routingControl;
+
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
@@ -109,12 +111,16 @@ function calculateRoute() {
     var endCoords = stations[end];
     
     if (startCoords && endCoords) {
-        // เพิ่มเส้นทางในแผนที่
-        L.Routing.control({
+        if (routingControl) {
+            map.removeControl(routingControl);
+        }
+        
+        routingControl = L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
         }).addTo(map);
+    }
 }
