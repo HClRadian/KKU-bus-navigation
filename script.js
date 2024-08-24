@@ -98,11 +98,13 @@ var stations = {
     "อุทยานการเกษตร2":[16.466749, 102.815335],
 };
 
-var mandatoryStop = "คณะเกษตรศาสตร์2";
-var mandatoryStop2 = "ที่พักญาติ";
+// จุดที่บังคับให้ผ่าน
+var mandatoryStops = ["ที่พักญาติ", "คณะเกษตรศาสตร์2"];
+
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
+
 var routingControl;
 
 function calculateRoute() {
@@ -111,23 +113,31 @@ function calculateRoute() {
 
     var startCoords = stations[start];
     var endCoords = stations[end];
-    var mandatoryStopCoords = stations[mandatoryStop];
-    var mandatoryStopCoords2 = stations[mandatoryStop2];
     
-    if (startCoords && endCoords && mandatoryStopCoords) {
+    if (startCoords && endCoords) {
+        // สร้างรายการ waypoints
+        var waypoints = [L.latLng(startCoords[0], startCoords[1])];
+        
+        // เพิ่มจุดบังคับลงใน waypoints
+        for (var i = 0; i < mandatoryStops.length; i++) {
+            var stopCoords = stations[mandatoryStops[i]];
+            if (stopCoords) {
+                waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
+            }
+        }
+        
+        // เพิ่มจุดหมายปลายทางลงใน waypoints
+        waypoints.push(L.latLng(endCoords[0], endCoords[1]));
+
         if (routingControl) {
             map.removeControl(routingControl);
         }
         
         routingControl = L.Routing.control({
-            waypoints: [
-                L.latLng(startCoords[0], startCoords[1]),
-                L.latLng(mandatoryStopCoords2[0], mandatoryStopCoords2[1]),
-                L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
-                L.latLng(endCoords[0], endCoords[1])
-            ],
+            waypoints: waypoints,
             routeWhileDragging: true,
-            addWaypoints: false
+            addWaypoints: false // ป้องกันการเพิ่มจุดเพิ่มเติมจากผู้ใช้
         }).addTo(map);
     }
 }
+
