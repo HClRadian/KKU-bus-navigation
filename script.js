@@ -138,6 +138,14 @@ function calculateRoute() {
             routeWhileDragging: true,
             addWaypoints: false // ป้องกันการเพิ่มจุดเพิ่มเติมจากผู้ใช้
         }).addTo(map);
+         routingControl.on('routesfound', function(e) {
+            var routes = e.routes;
+            var summary = routes[0].summary;
+            
+            // แสดงข้อความที่ต้องการ
+            alert('ขึ้นรถสายสีแดง ลงรถที่จุดเกษตร3 ขึ้นรถสายสีเขียว');
+        });
     }
 }
+
 
