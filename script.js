@@ -123,7 +123,8 @@ function calculateRoute() {
                 L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
                 L.latLng(endCoords[0], endCoords[1])
             ],
-            routeWhileDragging: true
+            routeWhileDragging: true,
+            addWaypoints: false
         }).addTo(map);
     }
 }
