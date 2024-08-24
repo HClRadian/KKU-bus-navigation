@@ -117,8 +117,4 @@ function calculateRoute() {
             ],
             routeWhileDragging: true
         }).addTo(map);
-
-    else {
-        alert("ไม่พบสถานีที่เลือก");
-};
 }
