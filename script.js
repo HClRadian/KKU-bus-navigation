@@ -98,7 +98,7 @@ var stations = {
     "อุทยานการเกษตร2":[16.466749, 102.815335],
 };
 
-var mandatoryStop = "ที่พักญาติ";
+var mandatoryStop = "คณะเกษตรศาสตร์2";
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
