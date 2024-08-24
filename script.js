@@ -99,7 +99,7 @@ var stations = {
 };
 
 // จุดที่บังคับให้ผ่าน
-var mandatoryStops = ["สระพลาสติก", "คณะเกษตรศาสตร์2","คณะเทศโนโลยี1"];
+var mandatoryStops = ["ที่พักญาติ", "สระพลาสติก", "คณะเกษตรศาสตร์2","คณะเทศโนโลยี1"];
 
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
