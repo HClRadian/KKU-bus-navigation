@@ -2,7 +2,6 @@ var map = L.map('map').setView([16.4734, 102.824], 14); // พิกัดใน
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
-// ตำแหน่งของสถานี
 var stations = {
     "7-11 หลังหอ 8":[16.480184, 102.811889],
     "Complex":[16.477264, 102.823369],
@@ -98,6 +97,8 @@ var stations = {
     "อุทยานการเกษตร1":[16.466404, 102.815469],
     "อุทยานการเกษตร2":[16.466749, 102.815335],
 };
+
+var mandatoryStop = "ที่พักญาติ";
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
@@ -109,8 +110,9 @@ function calculateRoute() {
 
     var startCoords = stations[start];
     var endCoords = stations[end];
+    var mandatoryStopCoords = stations[mandatoryStop];
     
-    if (startCoords && endCoords) {
+    if (startCoords && endCoords && mandatoryStopCoords) {
         if (routingControl) {
             map.removeControl(routingControl);
         }
@@ -118,6 +120,7 @@ function calculateRoute() {
         routingControl = L.Routing.control({
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
+                L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true
