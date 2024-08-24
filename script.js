@@ -99,6 +99,7 @@ var stations = {
 };
 
 var mandatoryStop = "คณะเกษตรศาสตร์2";
+var mandatoryStop2 = "ที่พักญาติ";
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
 }
@@ -111,6 +112,7 @@ function calculateRoute() {
     var startCoords = stations[start];
     var endCoords = stations[end];
     var mandatoryStopCoords = stations[mandatoryStop];
+    var mandatoryStopCoords2 = stations[mandatoryStop2];
     
     if (startCoords && endCoords && mandatoryStopCoords) {
         if (routingControl) {
@@ -121,6 +123,7 @@ function calculateRoute() {
             waypoints: [
                 L.latLng(startCoords[0], startCoords[1]),
                 L.latLng(mandatoryStopCoords[0], mandatoryStopCoords[1]), // จุดที่บังคับให้ผ่าน
+                L.latLng(mandatoryStopCoords2[0], mandatoryStopCoords2[1]),
                 L.latLng(endCoords[0], endCoords[1])
             ],
             routeWhileDragging: true,
