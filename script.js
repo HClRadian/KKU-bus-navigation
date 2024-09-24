@@ -143,7 +143,5 @@ function calculateRoute() {
             var routes = e.routes;
             var summary = routes[0].summary;
         });
-    } else {
-        console.error("Unable to calculate route. Check inputs.");
     }
 }
