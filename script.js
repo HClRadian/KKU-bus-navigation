@@ -121,6 +121,7 @@ function calculateRoute() {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
             }
         }
+    }
     if (startCoords && endCoords && way) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
@@ -129,6 +130,7 @@ function calculateRoute() {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
             }
         }
+    }
     if (startCoords && endCoords && way) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
@@ -137,6 +139,7 @@ function calculateRoute() {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
             }
         }
+    }
     if (startCoords && endCoords && way) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
@@ -145,6 +148,7 @@ function calculateRoute() {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
             }
         }
+    }
         waypoints.push(L.latLng(endCoords[0], endCoords[1]));
         if (routingControl) {
             map.removeControl(routingControl);
@@ -158,6 +162,4 @@ function calculateRoute() {
             var summary = routes[0].summary;
         });
     }
-}
-
 
