@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 var map = L.map('map').setView([16.4734, 102.824], 14);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     {maxZoom: 19,})
