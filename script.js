@@ -117,7 +117,7 @@ function calculateRoute() {
     var was = document.getElementById("Color").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
-    var way = Wi[was];
+     var mandatoryStops = Wi[was];
     if (startCoords && endCoords && way) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
@@ -136,35 +136,31 @@ function calculateRoute() {
             }
         }
     }
-    if (startCoords && endCoords && way) {
+    if (startCoords && endCoords && mandatoryStops) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
-            var  stopCoords = stations[mandatoryStops[i]];
+            var stopCoords = stations[mandatoryStops[i]];
             if (stopCoords) {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
             }
         }
-    }
-    if (startCoords && endCoords && way) {
-        var waypoints = [L.latLng(startCoords[0], startCoords[1])];
-        for (var i = 0; i < mandatoryStops.length; i++) {
-            var  stopCoords = stations[mandatoryStops[i]];
-            if (stopCoords) {
-                waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
-            }
-        }
-    }
         waypoints.push(L.latLng(endCoords[0], endCoords[1]));
+
         if (routingControl) {
             map.removeControl(routingControl);
         }
+
         routingControl = L.Routing.control({
             waypoints: waypoints,
             routeWhileDragging: true,
-            addWaypoints: false}).addTo(map);
-         routingControl.on('routesfound', function(e) {
+            addWaypoints: false
+        }).addTo(map);
+
+        routingControl.on('routesfound', function(e) {
             var routes = e.routes;
             var summary = routes[0].summary;
         });
+    } else {
+        console.error("Unable to calculate route. Check inputs.");
     }
-
+}
