@@ -111,10 +111,10 @@ var routingControl;
 function calculateRoute() {
     var start = document.getElementById("start").value;
     var end = document.getElementById("end").value;
-    var was = document.getElementById("W").value;
+    var was = document.getElementById("Color").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
-    var way = Wi[W];
+    var way = Wi[Color];
     if (startCoords && endCoords && way) {
         // สร้างรายการ waypoints
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
