@@ -117,25 +117,7 @@ function calculateRoute() {
     var was = document.getElementById("Color").value;
     var startCoords = stations[start];
     var endCoords = stations[end];
-     var mandatoryStops = Wi[was];
-    if (startCoords && endCoords && way) {
-        var waypoints = [L.latLng(startCoords[0], startCoords[1])];
-        for (var i = 0; i < mandatoryStops.length; i++) {
-            var  stopCoords = stations[mandatoryStops[i]];
-            if (stopCoords) {
-                waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
-            }
-        }
-    }
-    if (startCoords && endCoords && way) {
-        var waypoints = [L.latLng(startCoords[0], startCoords[1])];
-        for (var i = 0; i < mandatoryStops.length; i++) {
-            var  stopCoords = stations[mandatoryStops[i]];
-            if (stopCoords) {
-                waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
-            }
-        }
-    }
+    var mandatoryStops = Wi[was];
     if (startCoords && endCoords && mandatoryStops) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
         for (var i = 0; i < mandatoryStops.length; i++) {
