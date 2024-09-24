@@ -1,5 +1,7 @@
 var map = L.map('map').setView([16.4734, 102.824], 14);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,}).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+    {maxZoom: 19,})
+    .addTo(map);
 var stations = {
     "7-11 หลังหอ 8":[16.480184, 102.811889],
     "Complex":[16.477264, 102.823369],
