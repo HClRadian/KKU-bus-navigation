@@ -256,6 +256,7 @@ for (var key in stations) {
             }else {
                 subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
             }
+        }
 var routingControl;
 function calculateRoute() {
     var start = document.getElementById("start").value;
