@@ -6,7 +6,6 @@
     <title>Map Routing</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
-    document.getElementById("Color").addEventListener("change", showSubOptions);
     <style>
         /* styles.css */
         .controls {
@@ -30,6 +29,7 @@
     <div class="controls">
         <label for="Color">เส้นทางเดินรถ:</label>
         <select id="Color">
+            <option value="">...</option>
             <option value="green">สายสีเขียว</option>
             <option value="red">สายสีแดง</option>
             <option value="yellow">สายสีเหลือง</option>
@@ -38,7 +38,7 @@
         <div id="subOptions" style="display:none;">
             <label for="start">เลือกสถานีเริ่มต้น:</label>
             <select id="start">
-                <option value="">...</option>
+                <option value=" ">...</option>
             </select>
         </div>
         <label for="end">เลือกสถานีปลายทาง:</label>
@@ -146,6 +146,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script>
+        document.getElementById("Color").addEventListener("change", showSubOptions);
         // JavaScript code from the first part
         const map = L.map('map').setView([16.475, 102.82], 14);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
