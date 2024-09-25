@@ -18,7 +18,6 @@
             width: 100%; /* กำหนดความกว้างของแผนที่ */
         }
     </style>
-    
 </head>
 <body>
     <div id="map"></div>
@@ -33,8 +32,8 @@
             <option value="blue">สายสีน้ำเงิน</option>
             <!-- รายการอื่นๆ -->
         </select>
-        <div id="showSubOptions" style="display:none;">
-            <label for="start">สถานี:</label>
+       <div id="subOptions" style="display:none;">
+            <label for="start">เลือกสถานีเริ่มต้น:</label>
             <select id="start">
                 <option value="">...</option>
             </select>
@@ -140,10 +139,18 @@
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
             <script>
+                var map;
+                var routingControl;
+                function initMap() {
+                    map = L.map('map').setView([16.4734, 102.824], 14);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                    }).addTo(map);
+                }
         function showSubOptions() {
             var mainSelect = document.getElementById("Color");
             var subOptions = document.getElementById("subOptions");
-            var subSelect = document.getElementById("subSelect");
+            var subSelect = document.getElementById("start");
 
             // ล้างตัวเลือกย่อยก่อน
             subSelect.innerHTML = "<option value=''>เลือก...</option>";
