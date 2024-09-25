@@ -133,11 +133,10 @@
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
             <script>
-                document.getElementById("Color").addEventListener("change", showSubOptions);
         function showSubOptions() {
             var mainSelect = document.getElementById("Color");
-            var subOptions = document.getElementById("start");
-            var subSelect = document.getElementById("subSelect");
+            var subOptions = document.getElementById("subOptions");
+            var subSelect = document.getElementById("start");
 
             // ล้างตัวเลือกย่อยก่อน
             subSelect.innerHTML = "<option value=''>เลือก...</option>";
