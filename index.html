@@ -25,7 +25,13 @@
             <option value="blue">สายสีน้ำเงิน</option>
             <!-- รายการอื่นๆ -->
         </select>
-            <label for="start">เลือกสถานีต้นทาง(สีเขียว):</label>
+        <div id="subOptions" style="display:none;">
+            <label for="subSelect">สถานี:</label>
+            <select id="subSelect">
+                <option value=""> </option>
+            </select>
+        </div>
+           /* <label for="start">เลือกสถานีต้นทาง(สีเขียว):</label>
         <select id="start">
             <option value=" "> </option>
             <option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>
@@ -170,7 +176,7 @@
             <option value="โรงยิมเก่า">โรงยิมเก่า</option>
             <option value="สนามยิงปืน">สนามยิงปืน</option>
             <!-- รายการอื่นๆ -->
-        </select>
+        </select>*/
         <label for="end">เลือกสถานีปลายทาง:</label>
         <select id="end">
             <option value=" "> </option>
@@ -271,6 +277,33 @@
 
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
-    <script src="script.js"></script>
+            <script>
+        function showSubOptions() {
+            var mainSelect = document.getElementById("mainSelect");
+            var subOptions = document.getElementById("subOptions");
+            var subSelect = document.getElementById("subSelect");
+
+            // ล้างตัวเลือกย่อยก่อน
+            subSelect.innerHTML = "<option value=''>เลือก...</option>";
+
+            // แสดงหรือซ่อนตัวเลือกย่อยตามตัวเลือกหลัก
+            if (mainSelect.value === "green") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += "<option value='station1'>สถานี 1</option>";
+                subSelect.innerHTML += "<option value='station2'>สถานี 2</option>";
+            } else if (mainSelect.value === "red") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += "<option value='station3'>สถานี 3</option>";
+                subSelect.innerHTML += "<option value='station4'>สถานี 4</option>";
+            } else {
+                subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
+            }
+        }
+
+        function calculateRoute() {
+            // ฟังก์ชันสำหรับคำนวณเส้นทาง
+            // เพิ่มโค้ดที่เกี่ยวข้องที่นี่
+            alert("คำนวณเส้นทางจากสถานี " + document.getElementById("subSelect").value + " ไปยัง " + document.getElementById("end").value);
+        }
 </body>
 </html>
