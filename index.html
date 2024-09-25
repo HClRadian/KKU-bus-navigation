@@ -433,11 +433,7 @@
                 }
                 routingControl = L.Routing.control({
                     waypoints: waypoints,
-                    routeWhileDragging: true,
-                    lineOptions: {
-                     styles: [{ color: '#ff0000', opacity: 0.7, weight: 4 }],
-                    zIndex: 1000
-                    }
+                    routeWhileDragging: true
                 }).addTo(map);
             } else {
                 alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
