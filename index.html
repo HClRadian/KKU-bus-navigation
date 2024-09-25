@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    
 </head>
 <body>
     <div id="map" style="width: 100%; height: 80vh;"></div>
@@ -132,9 +133,10 @@
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
             <script>
+                document.getElementById("Color").addEventListener("change", showSubOptions);
         function showSubOptions() {
             var mainSelect = document.getElementById("Color");
-            var subOptions = document.getElementById("strat");
+            var subOptions = document.getElementById("strart");
             var subSelect = document.getElementById("subSelect");
 
             // ล้างตัวเลือกย่อยก่อน
@@ -143,145 +145,144 @@
             // แสดงหรือซ่อนตัวเลือกย่อยตามตัวเลือกหลัก
             if (mainSelect.value === "green") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += "<option value=" "> </option>";
-                subSelect.innerHTML += "<option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>";
-                subSelect.innerHTML += "<option value="แฟลตป่าดู่1">แฟลตป่าดู่1</option>";
-                subSelect.innerHTML += "<option value="พิพิธภัณฑ์ธรรมชาติวิทยา">พิพิธภัณฑ์ธรรมชาติวิทยา</option>";
-                subSelect.innerHTML += "<option value="คุ้มศรีฐาน">คุ้มศรีฐาน</option>";
-                subSelect.innerHTML += "<option value="หอศิลป์">หอศิลป์</option>";
-                subSelect.innerHTML += "<option value="ศูนย์ประชุมกาญจนาภิเษก">ศูนย์ประชุมกาญจนาภิเษก</option>";
-                subSelect.innerHTML += "<option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option";
-                subSelect.innerHTML += "<option value="แฟลตป่าดู่2">แฟลตป่าดู่2</option>";
-                subSelect.innerHTML += "<option value="อุทยานการเกษตร1">อุทยานการเกษตร1</option>";
-                subSelect.innerHTML += "<option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>";
-                subSelect.innerHTML += "<option value="หน้าอาคารสิริคุณากร">หน้าอาคารสิริคุณากร</option>";
-                subSelect.innerHTML += "<option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>";
-                subSelect.innerHTML += "<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>";
-                subSelect.innerHTML += "<option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>";
-                subSelect.innerHTML += "<option value="ตรงข้ามอาคารสิริคุณากร">ตรงข้ามอาคารสิริคุณากร</option>";
-                subSelect.innerHTML += "<option value="ลานจอรถอุทยานการเกษตร">ลานจอรถอุทยานการเกษตร</option>";
-                subSelect.innerHTML += "<option value="อุทยานการเกษตร2">อุทยานการเกษตร2</option>";
-                subSelect.innerHTML += "<option value="โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น">โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น</option>";
-                subSelect.innerHTML += "<option value="ประตูศรีฐาน">ประตูศรีฐาน</option> ";
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>';
+                subSelect.innerHTML += '<option value="แฟลตป่าดู่1">แฟลตป่าดู่1</option>';
+                subSelect.innerHTML += '<option value="พิพิธภัณฑ์ธรรมชาติวิทยา">พิพิธภัณฑ์ธรรมชาติวิทยา</option>';
+                subSelect.innerHTML += '<option value="คุ้มศรีฐาน">คุ้มศรีฐาน</option>';
+                subSelect.innerHTML += '<option value="หอศิลป์">หอศิลป์</option>';
+                subSelect.innerHTML += '<option value="ศูนย์ประชุมกาญจนาภิเษก">ศูนย์ประชุมกาญจนาภิเษก</option>';
+                subSelect.innerHTML += '<option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>';
+                subSelect.innerHTML += '<option value="แฟลตป่าดู่2">แฟลตป่าดู่2</option>';
+                subSelect.innerHTML += '<option value="อุทยานการเกษตร1">อุทยานการเกษตร1</option>';
+                subSelect.innerHTML += '<option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="หน้าอาคารสิริคุณากร">หน้าอาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>';
+                subSelect.innerHTML += '<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>';
+                subSelect.innerHTML += '<option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>';
+                subSelect.innerHTML += '<option value="ตรงข้ามอาคารสิริคุณากร">ตรงข้ามอาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="ลานจอรถอุทยานการเกษตร">ลานจอรถอุทยานการเกษตร</option>';
+                subSelect.innerHTML += '<option value="อุทยานการเกษตร2">อุทยานการเกษตร2</option>';
+                subSelect.innerHTML += '<option value="โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น">โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น</option>';
+                subSelect.innerHTML += '<option value="ประตูศรีฐาน">ประตูศรีฐาน</option>';
             } else if (mainSelect.value === "red") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += "<option value=" "> </option>";
-                subSelect.innerHTML += "<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>";
-                subSelect.innerHTML += "<option value="หออินเตอร์">หออินเตอร์</option>";
-                subSelect.innerHTML += "<option value="ปตท.">ปตท.</option>";
-                subSelect.innerHTML += "<option value="หอในชาย 8">หอในชาย 8</option>";
-                subSelect.innerHTML += "<option value="โรงชาย">โรงชาย</option>";
-                subSelect.innerHTML += "<option value="Complex">Complex</option>";
-                subSelect.innerHTML += "<option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>";
-                subSelect.innerHTML += "<option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>";
-                subSelect.innerHTML += "<option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>";
-                subSelect.innerHTML += "<option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>";
-                subSelect.innerHTML += "<option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>";
-                subSelect.innerHTML += "<option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>";
-                subSelect.innerHTML += "<option value="สถาบันขงจื่อ">สถาบันขงจื่อ</option>";
-                subSelect.innerHTML += "<option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>";
-                subSelect.innerHTML += "<option value="โรงพยาบาลศรีนครินทร์">โรงพยาบาลศรีนครินทร์</option>";
-                subSelect.innerHTML += "<option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>";
-                subSelect.innerHTML += "<option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>";
-                subSelect.innerHTML += "<option value="แฟลต14">แฟลต14</option>";
-                subSelect.innerHTML += "<option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>";
-                subSelect.innerHTML += "<option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>";
-                subSelect.innerHTML += "<option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>";
-                subSelect.innerHTML += "<option value="หอพักนักศึกษาแพทย์">หอพักนักศึกษาแพทย์</option>";
-                subSelect.innerHTML += "<option value="โรงพิมพ์">โรงพิมพ์</option>";
-                subSelect.innerHTML += "<option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>";
-                subSelect.innerHTML += "<option value="โรงยิมเก่า">โรงยิมเก่า</option>";
-                subSelect.innerHTML += "<option value="สนามรักบี้">สนามรักบี้</option>";
-                subSelect.innerHTML += "<option value="สนามยิงปืน">สนามยิงปืน</option>";
-            }
-            else if (mainSelect.value === "red") {
-                subOptions.style.display = "block";
-                subSelect.innerHTML += "<option value=" "> </option>";
-                subSelect.innerHTML += "<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>";
-                subSelect.innerHTML += "<option value="หออินเตอร์">หออินเตอร์</option>";
-                subSelect.innerHTML += "<option value="ที่พักญาติ">ที่พักญาติ</option>";
-                subSelect.innerHTML += "<option value="สนามรักบี้">สนามรักบี้</option>";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>";
-                subSelect.innerHTML += "<option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>";
-                subSelect.innerHTML += "<option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>";
-                subSelect.innerHTML += "<option value="โรงพิมพ์">โรงพิมพ์</option>";
-                subSelect.innerHTML += "<option value="คณะวิศวกรรมศาสตร์2">คณะวิศวกรรมศาสตร์2</option>	";
-                subSelect.innerHTML += "<option value="คณะพยาบาลศาสตร์">คณะพยาบาลศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>	";
-                subSelect.innerHTML += "<option value="โรงอาหารหนองแวง">โรงอาหารหนองแวง</option>	";
-                subSelect.innerHTML += "<option value="ประตูกังสดาล">ประตูกังสดาล</option>	";
-                subSelect.innerHTML += "<option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>	";
-                subSelect.innerHTML += "<option value="แฟลต14">แฟลต14</option>	";
-                subSelect.innerHTML += "<option value="JK เครื่องเขียน">JK เครื่องเขียน</option>	";
-                subSelect.innerHTML += "<option value="ร้านพรพระ">ร้านพรพระ</option>	";
-                subSelect.innerHTML += "<option value="บึงหนองแวงตราชู">บึงหนองแวงตราชู</option>	";
-                subSelect.innerHTML += "<option value="YOUR SMILE">YOUR SMILE</option>	";
-                subSelect.innerHTML += "<option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="KKBS">KKBS</option>	";
-                subSelect.innerHTML += "<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>	";
-                subSelect.innerHTML += "<option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>	";
-                subSelect.innerHTML += "<option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>	";
-                subSelect.innerHTML += "<option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>	";
-                subSelect.innerHTML += "<option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>	";
-                subSelect.innerHTML += "<option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>	";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>	";
-                subSelect.innerHTML += "<option value="โรงยิมเก่า">โรงยิมเก่า</option>	";
-                subSelect.innerHTML += "<option value="สนามยิงปืน">สนามยิงปืน</option>	";
-
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
+                subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
+                subSelect.innerHTML += '<option value="ปตท.">ปตท.</option>';
+                subSelect.innerHTML += '<option value="หอในชาย 8">หอในชาย 8</option>';
+                subSelect.innerHTML += '<option value="โรงชาย">โรงชาย</option>';
+                subSelect.innerHTML += '<option value="Complex">Complex</option>';
+                subSelect.innerHTML += '<option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>';
+                subSelect.innerHTML += '<option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>';
+                subSelect.innerHTML += '<option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>';
+                subSelect.innerHTML += '<option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>';
+                subSelect.innerHTML += '<option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>';
+                subSelect.innerHTML += '<option value="สถาบันขงจื่อ">สถาบันขงจื่อ</option>';
+                subSelect.innerHTML += '<option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>';
+                subSelect.innerHTML += '<option value="โรงพยาบาลศรีนครินทร์">โรงพยาบาลศรีนครินทร์</option>';
+                subSelect.innerHTML += '<option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>';
+                subSelect.innerHTML += '<option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>';
+                subSelect.innerHTML += '<option value="แฟลต14">แฟลต14</option>';
+                subSelect.innerHTML += '<option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>';
+                subSelect.innerHTML += '<option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>';
+                subSelect.innerHTML += '<option value="หอพักนักศึกษาแพทย์">หอพักนักศึกษาแพทย์</option>';
+                subSelect.innerHTML += '<option value="โรงพิมพ์">โรงพิมพ์</option>';
+                subSelect.innerHTML += '<option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>';
+                subSelect.innerHTML += '<option value="โรงยิมเก่า">โรงยิมเก่า</option>';
+                subSelect.innerHTML += '<option value="สนามรักบี้">สนามรักบี้</option>';
+                subSelect.innerHTML += '<option value="สนามยิงปืน">สนามยิงปืน</option>';
             }
             else if (mainSelect.value === "yellow") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += "<option value=" "> </option>	";
-                subSelect.innerHTML += "<option value="บ้านสวนมอ">บ้านสวนมอ</option>	";
-                subSelect.innerHTML += "<option value="วิมานดิน">วิมานดิน</option>	";
-                subSelect.innerHTML += "<option value="Golden Living">Golden Living</option>	";
-                subSelect.innerHTML += "<option value="7-11 หลังหออินเตอร์">7-11 หลังหอ 8</option>	";
-                subSelect.innerHTML += "<option value="ร้านพู่กันเครื่องเขียน">ร้านพู่กันเครื่องเขียน</option>	";
-                subSelect.innerHTML += "<option value="หอพักมอแดงเพลส">หอพักมอแดงเพลส</option>	";
-                subSelect.innerHTML += "<option value="ร้านชบา">ร้านชบา</option>	";
-                subSelect.innerHTML += "<option value="เคี้ยงหลังมอ">เคี้ยงหลังมอ</option>	";
-                subSelect.innerHTML += "<option value="ครัวโอมหมูกรอบ">ครัวโอมหมูกรอบ</option>	";
-                subSelect.innerHTML += "<option value="บ้านพักสบาย">บ้านพักสบาย</option>	";
-                subSelect.innerHTML += "<option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>	";
-                subSelect.innerHTML += "<option value="พิมานคอนโด">พิมานคอนโด</option>	";
-                subSelect.innerHTML += "<option value="โรงอาหาร U-center">โรงอาหาร U-center</option>	";
-                subSelect.innerHTML += "<option value="หอในชาย 9">หอในชาย 9</option>	";
-                subSelect.innerHTML += "<option value="หอในชาย 8">หอในชาย 8</option>	";
-                subSelect.innerHTML += "<option value="โรงชาย">โรงชาย</option>	";
-                subSelect.innerHTML += "<option value="Complex">Complex</option>	";
-                subSelect.innerHTML += "<option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>	";
-                subSelect.innerHTML += "<option value="สถาบันลุ่มน้ำโขง">สถาบันลุ่มน้ำโขง</option>	";
-                subSelect.innerHTML += "<option value="KKBS">KKBS</option>	";
-                subSelect.innerHTML += "<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="คณะแพทย์ศาสตร์">คณะแพทย์ศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>	";
-                subSelect.innerHTML += "<option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>	";
-                subSelect.innerHTML += "<option value="หมู่บ้านศูนย์แพทย์1">หมู่บ้านศูนย์แพทย์1</option>	";
-                subSelect.innerHTML += "<option value="หมู่บ้านศูนย์แพทย์4">หมู่บ้านศูนย์แพทย์4</option>	";
-                subSelect.innerHTML += "<option value="หอพักนักศึกษาพยาบาล">หอพักนศ.พยาบาล</option>	";
-                subSelect.innerHTML += "<option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>	";
-                subSelect.innerHTML += "<option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="หมู่บ้านศูนย์แพทย์">หมู่บ้านศูนย์แพทย์</option>	";
-                subSelect.innerHTML += "<option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>	";
-                subSelect.innerHTML += "<option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>	";
-                subSelect.innerHTML += "<option value="คณะศึกษาศาสตร์">คณะศึกษาศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>	";
-                subSelect.innerHTML += "<option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>	";
-                subSelect.innerHTML += "<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>	";
-                subSelect.innerHTML += "<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>	";
-                subSelect.innerHTML += "<option value="โรงยิมเก่า">โรงยิมเก่า</option>	";
-                subSelect.innerHTML += "<option value="สนามยิงปืน">สนามยิงปืน</option>	";
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
+                subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
+                subSelect.innerHTML += '<option value="ที่พักญาติ">ที่พักญาติ</option>';
+                subSelect.innerHTML += '<option value="สนามรักบี้">สนามรักบี้</option>';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>';
+                subSelect.innerHTML += '<option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>';
+                subSelect.innerHTML += '<option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>';
+                subSelect.innerHTML += '<option value="โรงพิมพ์">โรงพิมพ์</option>';
+                subSelect.innerHTML += '<option value="คณะวิศวกรรมศาสตร์2">คณะวิศวกรรมศาสตร์2</option>	';
+                subSelect.innerHTML += '<option value="คณะพยาบาลศาสตร์">คณะพยาบาลศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>	';
+                subSelect.innerHTML += '<option value="โรงอาหารหนองแวง">โรงอาหารหนองแวง</option>	';
+                subSelect.innerHTML += '<option value="ประตูกังสดาล">ประตูกังสดาล</option>	';
+                subSelect.innerHTML += '<option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>	';
+                subSelect.innerHTML += '<option value="แฟลต14">แฟลต14</option>	';
+                subSelect.innerHTML += '<option value="JK เครื่องเขียน">JK เครื่องเขียน</option>	';
+                subSelect.innerHTML += '<option value="ร้านพรพระ">ร้านพรพระ</option>	';
+                subSelect.innerHTML += '<option value="บึงหนองแวงตราชู">บึงหนองแวงตราชู</option>	';
+                subSelect.innerHTML += '<option value="YOUR SMILE">YOUR SMILE</option>	';
+                subSelect.innerHTML += '<option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="KKBS">KKBS</option>	';
+                subSelect.innerHTML += '<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>	';
+                subSelect.innerHTML += '<option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>	';
+                subSelect.innerHTML += '<option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>	';
+                subSelect.innerHTML += '<option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>	';
+                subSelect.innerHTML += '<option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>	';
+                subSelect.innerHTML += '<option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>	';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>	';
+                subSelect.innerHTML += '<option value="โรงยิมเก่า">โรงยิมเก่า</option>	';
+                subSelect.innerHTML += '<option value="สนามยิงปืน">สนามยิงปืน</option>	';
+            }
+            else if (mainSelect.value === "blue") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += '<option value=" "> </option>	';
+                subSelect.innerHTML += '<option value="บ้านสวนมอ">บ้านสวนมอ</option>	';
+                subSelect.innerHTML += '<option value="วิมานดิน">วิมานดิน</option>	';
+                subSelect.innerHTML += '<option value="Golden Living">Golden Living</option>	';
+                subSelect.innerHTML += '<option value="7-11 หลังหออินเตอร์">7-11 หลังหอ 8</option>	';
+                subSelect.innerHTML += '<option value="ร้านพู่กันเครื่องเขียน">ร้านพู่กันเครื่องเขียน</option>	';
+                subSelect.innerHTML += '<option value="หอพักมอแดงเพลส">หอพักมอแดงเพลส</option>	';
+                subSelect.innerHTML += '<option value="ร้านชบา">ร้านชบา</option>	';
+                subSelect.innerHTML += '<option value="เคี้ยงหลังมอ">เคี้ยงหลังมอ</option>	';
+                subSelect.innerHTML += '<option value="ครัวโอมหมูกรอบ">ครัวโอมหมูกรอบ</option>	';
+                subSelect.innerHTML += '<option value="บ้านพักสบาย">บ้านพักสบาย</option>	';
+                subSelect.innerHTML += '<option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>	';
+                subSelect.innerHTML += '<option value="พิมานคอนโด">พิมานคอนโด</option>	';
+                subSelect.innerHTML += '<option value="โรงอาหาร U-center">โรงอาหาร U-center</option>	';
+                subSelect.innerHTML += '<option value="หอในชาย 9">หอในชาย 9</option>	';
+                subSelect.innerHTML += '<option value="หอในชาย 8">หอในชาย 8</option>	';
+                subSelect.innerHTML += '<option value="โรงชาย">โรงชาย</option>	';
+                subSelect.innerHTML += '<option value="Complex">Complex</option>	';
+                subSelect.innerHTML += '<option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>	';
+                subSelect.innerHTML += '<option value="สถาบันลุ่มน้ำโขง">สถาบันลุ่มน้ำโขง</option>	';
+                subSelect.innerHTML += '<option value="KKBS">KKBS</option>	';
+                subSelect.innerHTML += '<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="คณะแพทย์ศาสตร์">คณะแพทย์ศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>	';
+                subSelect.innerHTML += '<option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>	';
+                subSelect.innerHTML += '<option value="หมู่บ้านศูนย์แพทย์1">หมู่บ้านศูนย์แพทย์1</option>	';
+                subSelect.innerHTML += '<option value="หมู่บ้านศูนย์แพทย์4">หมู่บ้านศูนย์แพทย์4</option>	';
+                subSelect.innerHTML += '<option value="หอพักนักศึกษาพยาบาล">หอพักนศ.พยาบาล</option>	';
+                subSelect.innerHTML += '<option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>	';
+                subSelect.innerHTML += '<option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="หมู่บ้านศูนย์แพทย์">หมู่บ้านศูนย์แพทย์</option>	';
+                subSelect.innerHTML += '<option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>	';
+                subSelect.innerHTML += '<option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>	';
+                subSelect.innerHTML += '<option value="คณะศึกษาศาสตร์">คณะศึกษาศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>	';
+                subSelect.innerHTML += '<option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>	';
+                subSelect.innerHTML += '<option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>	';
+                subSelect.innerHTML += '<option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>	';
+                subSelect.innerHTML += '<option value="โรงยิมเก่า">โรงยิมเก่า</option>	';
+                subSelect.innerHTML += '<option value="สนามยิงปืน">สนามยิงปืน</option>	';
             }
             else {
                 subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
