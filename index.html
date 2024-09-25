@@ -434,6 +434,9 @@
                 routingControl = L.Routing.control({
                     waypoints,
                     routeWhileDragging: true
+                    lineOptions: {
+                    zIndex: 1000  // ตั้งค่า zIndex ให้สูงขึ้น
+                    }
                 }).addTo(map);
             } else {
                 alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
