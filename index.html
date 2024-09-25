@@ -6,6 +6,7 @@
     <title>Map Routing</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
+    document.getElementById("Color").addEventListener("change", showSubOptions);
     <style>
         /* styles.css */
         .controls {
@@ -305,7 +306,7 @@
                 endSelect.appendChild(optionEnd);
             }
         }
-        function showSubOptions() {
+    function showSubOptions() {
       const mainSelect = document.getElementById("Color");
       const subOptions = document.getElementById("subOptions");
       const subSelect = document.getElementById("start");
