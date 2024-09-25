@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     <style>
         #map {
@@ -139,6 +138,7 @@
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
             <script>
+                document.getElementById("Color").addEventListener("change", showSubOptions);
                 var map;
                 var routingControl;
                 function initMap() {
