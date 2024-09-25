@@ -1,4 +1,4 @@
-var map = L.map('map').setView([16.4734, 102.824], 14);
+var map = L.map('map').setView([16.4734,102.824],14);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     {maxZoom: 19,})
     .addTo(map);
@@ -118,7 +118,7 @@ function calculateRoute() {
     var mandatoryStops = Wi[was];
     if (startCoords && endCoords && mandatoryStops) {
         var waypoints = [L.latLng(startCoords[0], startCoords[1])];
-        for (var i = 0; i < mandatoryStops.length; i++) {
+        for (var i = 0; i<mandatoryStops.length; i++) {
             var stopCoords = stations[mandatoryStops[i]];
             if (stopCoords) {
                 waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
