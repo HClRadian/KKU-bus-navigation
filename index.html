@@ -19,7 +19,7 @@
     <div class="controls">
             <label for="Color">เลือกสาย</label>
         <select id="Color">
-            <option value=" "> </option>
+            <option value=" ">...</option>
             <option value="green">สายสีเขียว</option>
             <option value="red">สายสีแดง</option>
             <option value="yellow">สายสีเหลือง</option>
@@ -29,12 +29,12 @@
         <div id="subOptions" style="display:none;">
             <label for="start">สถานี:</label>
             <select id="start">
-                <option value=""> </option>
+                <option value="">...</option>
             </select>
         </div>
         <label for="end">เลือกสถานีปลายทาง:</label>
         <select id="end">
-            <option value=" "> </option>
+            <option value=" ">...</option>
             <option value="7-11 หลังหอ 8">7-11 หลังหอ 8</option>
             <option value="Complex">Complex</option>
             <option value="Golden Living">Golden Living</option>
@@ -144,7 +144,7 @@
             // แสดงหรือซ่อนตัวเลือกย่อยตามตัวเลือกหลัก
             if (mainSelect.value === "green") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value=" ">...</option>';
                 subSelect.innerHTML += '<option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>';
                 subSelect.innerHTML += '<option value="แฟลตป่าดู่1">แฟลตป่าดู่1</option>';
                 subSelect.innerHTML += '<option value="พิพิธภัณฑ์ธรรมชาติวิทยา">พิพิธภัณฑ์ธรรมชาติวิทยา</option>';
@@ -169,7 +169,7 @@
                 subSelect.innerHTML += '<option value="ประตูศรีฐาน">ประตูศรีฐาน</option>';
             } else if (mainSelect.value === "red") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value=" ">...</option>';
                 subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
                 subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
                 subSelect.innerHTML += '<option value="ปตท.">ปตท.</option>';
@@ -202,7 +202,7 @@
             }
             else if (mainSelect.value === "yellow") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value=" ">...</option>';
                 subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
                 subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
                 subSelect.innerHTML += '<option value="ที่พักญาติ">ที่พักญาติ</option>';
@@ -241,7 +241,7 @@
             }
             else if (mainSelect.value === "blue") {
                 subOptions.style.display = "block";
-                subSelect.innerHTML += '<option value=" "> </option>	';
+                subSelect.innerHTML += '<option value=" ">...</option>	';
                 subSelect.innerHTML += '<option value="บ้านสวนมอ">บ้านสวนมอ</option>	';
                 subSelect.innerHTML += '<option value="วิมานดิน">วิมานดิน</option>	';
                 subSelect.innerHTML += '<option value="Golden Living">Golden Living</option>	';
