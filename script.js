@@ -105,9 +105,9 @@ const blue = ['บ้านสวนมอ', 'วิมานดิน', 'Golden
 const Wi = { green,  red,  yellow,  blue};
 let routingControl;
 function calculateRoute() {
-  const start = document.getElementById('start').value;
-  const end = document.getElementById('end').value;
-  const was = document.getElementById('Color').value;
+  const start = document.getElementById("start").value;
+  const end = document.getElementById("end").value;
+  const was = document.getElementById("Color").value;
   const startCoords = stations[start];
   const endCoords = stations[end];
   const mandatoryStops = Wi[was];
