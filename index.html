@@ -435,12 +435,8 @@
                     waypoints,
                     routeWhileDragging: true,
                     addWaypoints: false,
-                }).addTo(map);
-                routingControl.on(“routesfound”, (e) => {
-                const { routes } = e;
-                const { summary } = routes[0];
-                }
-            } else {
+                }).addTo(map);}
+               else {
                 alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
             }
         }
