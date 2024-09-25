@@ -26,7 +26,7 @@
             <option value="blue">สายสีน้ำเงิน</option>
             <!-- รายการอื่นๆ -->
         </select>
-        <div id="start" style="display:none;">
+        <div id="subOptions" style="display:none;">
             <label for="start">สถานี:</label>
             <select id="start">
                 <option value=""> </option>
@@ -136,7 +136,7 @@
         function showSubOptions() {
             var mainSelect = document.getElementById("Color");
             var subOptions = document.getElementById("subOptions");
-            var subSelect = document.getElementById("start");
+            var subSelect = document.getElementById("subSelect");
 
             // ล้างตัวเลือกย่อยก่อน
             subSelect.innerHTML = "<option value=''>เลือก...</option>";
