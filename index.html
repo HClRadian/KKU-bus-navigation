@@ -24,7 +24,7 @@
             <option value="blue">สายสีน้ำเงิน</option>
             <!-- รายการอื่นๆ -->
         </select>
-        <div id="subOptions" style="display:none;">
+        <div id="start" style="display:none;">
             <label for="start">สถานี:</label>
             <select id="start">
                 <option value=""> </option>
@@ -286,11 +286,6 @@
                 subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
             }
         } 
-
-        function calculateRoute() {
-            // ฟังก์ชันสำหรับคำนวณเส้นทาง
-            // เพิ่มโค้ดที่เกี่ยวข้องที่นี่
-            alert("คำนวณเส้นทางจากสถานี " + document.getElementById("subSelect").value + " ไปยัง " + document.getElementById("end").value);
-        }</script>
+        </script>
 </body>
 </html>
