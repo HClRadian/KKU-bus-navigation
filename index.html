@@ -431,8 +431,9 @@
                     map.removeControl(routingControl);
                 }
                 routingControl = L.Routing.control({
-                    waypoints: waypoints,
-                    routeWhileDragging: true
+                    waypoints,
+                    routeWhileDragging: true,
+                    addWaypoints: false,
                 }).addTo(map);
             } else {
                 alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
