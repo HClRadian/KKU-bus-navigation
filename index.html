@@ -258,37 +258,7 @@
         const blue = ["บ้านสวนมอ", "วิมานดิน", "Golden Living", "7-11 หลังหออินเตอร์", "ร้านพู่กันเครื่องเขียน", "หอพักมอแดงเพลส", "ร้านชบา", "เคี้ยงหลังมอ", "ครัวโอมหมูกรอบ", "บ้านพักสบาย", "เกษียรสินธุ์ปาร์ค", "พิมานคอนโด", "โรงอาหาร U-center", "หอในชาย 9", "หอในชาย 8", "โรงชาย", "Complex", "กาแฟเด้อหล่า", "สถาบันลุ่มน้ำโขง", "KKBS", "คณะวิทยาศาสตร์", "คณะสถาปัตยกรรมศาสตร์", "คณะแพทย์ศาสตร์", "คณะเทคนิคการแพทย์", "แฟลตศูนย์แพทย์", "หมู่บ้านศูนย์แพทย์1", "หมู่บ้านศูนย์แพทย์4", "หอพักนักศึกษาพยาบาล", "อาคารสิริคุณากร", "คณะศิลปกรรมศาสตร์", "หมู่บ้านศูนย์แพทย์", "โรงอาหารคณะพยาบาล", "คณะเภสัชศาสตร์2", "คณะศึกษาศาสตร์", "ศูนย์รถมอเตอร์ไซไฟฟ้า", "คณะมนุษยศาสตร์และสังคมศาสตร์", "หอสมุดมหาวิทยาลัยขอนแก่น", "คณะเกษตรศาสตร์3", "โรงยิมเก่า", "สนามยิงปืน"];
 
         const Wi = { green, red, yellow, blue };
-        let routingControl;
-        function calculateRoute() {
-            const srtart = document.getElementById("start").value;
-            const rend = document.getElementById("end").value;
-            const was = document.getElementById("Color").value;
-            const startCoords = stations[strart];
-            const endCoords = stations[rend];
-            const mandatoryStops = Wi[was];
-
-            if (startCoords && endCoords && mandatoryStops) {
-                const waypoints = [L.latLng(startCoords[0], startCoords[1])];
-                for (let i = 0; i < mandatoryStops.length; i++) {
-                    const stopCoords = stations[mandatoryStops[i]];
-                    if (stopCoords) {
-                        waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
-                    }
-                }
-                waypoints.push(L.latLng(endCoords[0], endCoords[1]));
-
-                if (routingControl) {
-                    map.removeControl(routingControl);
-                }
-                routingControl = L.Routing.control({
-                    waypoints,
-                    routeWhileDragging: true
-                }).addTo(map);
-            } else {
-                alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
-            }
-        }
-
+        
     function showSubOptions() {
       const mainSelect = document.getElementById("Color");
       const subOptions = document.getElementById("subOptions");
@@ -439,6 +409,37 @@
                 subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
             }
         }
+        let routingControl;
+        function calculateRoute() {
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+            const was = document.getElementById("Color").value;
+            const startCoords = stations[start];
+            const endCoords = stations[end];
+            const mandatoryStops = Wi[was];
+
+            if (startCoords && endCoords && mandatoryStops) {
+                const waypoints = [L.latLng(startCoords[0], startCoords[1])];
+                for (let i = 0; i < mandatoryStops.length; i++) {
+                    const stopCoords = stations[mandatoryStops[i]];
+                    if (stopCoords) {
+                        waypoints.push(L.latLng(stopCoords[0], stopCoords[1]));
+                    }
+                }
+                waypoints.push(L.latLng(endCoords[0], endCoords[1]));
+
+                if (routingControl) {
+                    map.removeControl(routingControl);
+                }
+                routingControl = L.Routing.control({
+                    waypoints,
+                    routeWhileDragging: true
+                }).addTo(map);
+            } else {
+                alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
+            }
+        }
+
     </script>
 </body>
 </html>
