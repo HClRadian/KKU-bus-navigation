@@ -29,7 +29,7 @@
     <div class="controls">
         <label for="Color">เส้นทางเดินรถ:</label>
         <select id="Color">
-            <option value="">...</option>
+            <option value=" ">...</option>
             <option value="green">สายสีเขียว</option>
             <option value="red">สายสีแดง</option>
             <option value="yellow">สายสีเหลือง</option>
@@ -260,11 +260,11 @@
         const Wi = { green, red, yellow, blue };
         let routingControl;
         function calculateRoute() {
-            const start = document.getElementById("start").value;
-            const end = document.getElementById("end").value;
+            const srtart = document.getElementById("start").value;
+            const rend = document.getElementById("end").value;
             const was = document.getElementById("Color").value;
-            const startCoords = stations[start];
-            const endCoords = stations[end];
+            const startCoords = stations[strart];
+            const endCoords = stations[rend];
             const mandatoryStops = Wi[was];
 
             if (startCoords && endCoords && mandatoryStops) {
