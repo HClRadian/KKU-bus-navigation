@@ -258,7 +258,6 @@
 
         const Wi = { green, red, yellow, blue };
         let routingControl;
-
         function calculateRoute() {
             const start = document.getElementById("start").value;
             const end = document.getElementById("end").value;
@@ -289,23 +288,6 @@
             }
         }
 
-        // สร้างตัวเลือกใน dropdown สำหรับจุดเริ่มต้นและจุดหมาย
-        function populateDropdowns() {
-            const startSelect = document.getElementById("start");
-            const endSelect = document.getElementById("end");
-
-            for (const station in stations) {
-                const optionStart = document.createElement("option");
-                optionStart.value = station;
-                optionStart.textContent = station;
-                startSelect.appendChild(optionStart);
-
-                const optionEnd = document.createElement("option");
-                optionEnd.value = station;
-                optionEnd.textContent = station;
-                endSelect.appendChild(optionEnd);
-            }
-        }
     function showSubOptions() {
       const mainSelect = document.getElementById("Color");
       const subOptions = document.getElementById("subOptions");
@@ -456,10 +438,6 @@
                 subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
             }
         }
-
-
-        // เรียกใช้งาน populateDropdowns เมื่อโหลดหน้า
-        window.onload = populateDropdowns;
     </script>
 </body>
 </html>
