@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบต่อรถ มข.</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <style>
-        #map {
-            height: 500px; /* กำหนดความสูงของแผนที่ */
-            width: 100%; /* กำหนดความกว้างของแผนที่ */
-        }
-    </style>
 </head>
 <body>
     <div id="map"></div>
-
     <div class="controls">
             <label for="Color">เลือกสาย</label>
         <select id="Color">
@@ -134,7 +124,6 @@
             <option value="อุทยานการเกษตร2">อุทยานการเกษตร2</option>
             <!-- รายการอื่นๆ -->
         </select>
-
         <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
     </div>
 </body>
