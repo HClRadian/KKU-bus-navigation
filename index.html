@@ -433,9 +433,10 @@
                 }
                 routingControl = L.Routing.control({
                     waypoints,
-                    routeWhileDragging: true
+                    routeWhileDragging: true,
                     lineOptions: {
-                    z-index: 1000
+                     styles: [{ color: '#ff0000', opacity: 0.7, weight: 4 }],
+                    zIndex: 1000
                     }
                 }).addTo(map);
             } else {
