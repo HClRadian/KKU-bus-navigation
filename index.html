@@ -432,7 +432,7 @@
                     map.removeControl(routingControl);
                 }
                 routingControl = L.Routing.control({
-                    waypoints,
+                    waypoints: waypoints,
                     routeWhileDragging: true,
                     lineOptions: {
                      styles: [{ color: '#ff0000', opacity: 0.7, weight: 4 }],
