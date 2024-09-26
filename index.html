@@ -428,9 +428,9 @@
                 }
                 waypoints.push(L.latLng(endCoords[0], endCoords[1]));
 
-                if (routingControl) {
+                /*if (routingControl) {
                     map.removeControl(routingControl);
-                }
+                }*/
                 routingControl = L.Routing.control({
                     waypoints,
                     routeWhileDragging: true,
