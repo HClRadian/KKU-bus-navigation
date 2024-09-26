@@ -147,7 +147,6 @@
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script>
         document.getElementById("Color").addEventListener("change", showSubOptions);
-        // JavaScript code from the first part
         const map = L.map('map').setView([16.466179, 102.813713], 14);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -406,7 +405,7 @@
                 subSelect.innerHTML += '<option value="สนามยิงปืน">สนามยิงปืน</option>	';
             }
             else {
-                subOptions.style.display = "none"; // ซ่อนถ้าไม่มีตัวเลือกหลัก
+                subOptions.style.display = "none";
             }
         }
         let routingControl;
