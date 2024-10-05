@@ -457,8 +457,10 @@
                     waypoints,
                     routeWhileDragging: true,
                     lineOptions: { styles: [{ color: '#ff0000', opacity: 1, weight: 5 }],},
-                    show : false,
                     addWaypoints: false, 
+                    itinerary: {
+        show: false // This hides the instructions panel
+    }
                 }).addTo(map);
                     
             }
