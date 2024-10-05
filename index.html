@@ -432,12 +432,12 @@
                     map.removeControl(routingControl);
                 }
                 routingControl = L.Routing.control({
+                    
                     waypoints,
                     routeWhileDragging: true,
                     lineOptions: { styles: [{ color: '#ff0000', opacity: 1, weight: 5 }],},
                     show : false,
-                    addWaypoints: false, 
-                }).addTo(map);
+                    addWaypoints: false,
                     if ("Color" === "green")
                 {
                     for (let i = 0; i <= 20; i++)
@@ -456,6 +456,9 @@
                             }
                         }
                 }
+                    
+                }).addTo(map);
+                    
             }
             
             
