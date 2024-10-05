@@ -436,21 +436,31 @@
                     for (let i = 0; i <= 20; i++)
                         {
                             if ("end" === blue[i])
+                            { let k=1;}
+                            else if ("end" === yellow[i])
                             {
-                                alert("เปลี่ยนรถสถานีที่ B30 ");
+                                let k=2;
                             }
-                            else if (end === yellow[i])
-                                {
-                                alert("เปลี่ยนรถสถานีที่ Y37 ");
-                                }
-                            else if (end === red[i])
+                            else if ("end" === red[i])
                             {
-                                alert("เปลี่ยนรถสถานีที่ R25 ");
-                            }
-                            else {
-                            alert("ไม่ต้องเปลี่ยนรถ");
+                                let k=3;
                             }
                         }
+                    if(k=1)
+                    {
+                        alert("เปลี่ยนสถานีที่ G10");
+                }
+                    else if(k=2)
+                    {
+                        alert("เปลี่ยนสถานีที่ G14");
+                }
+                    else if(k=3)
+                    {
+                        alert("เปลี่ยนสถานีที่ G12");
+                }
+                    else
+                    {
+                        alert("ไม่มีการเปลี่ยนสถานี");
                 }
                 routingControl = L.Routing.control({
                     
