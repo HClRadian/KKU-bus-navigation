@@ -437,9 +437,8 @@
                     lineOptions: { styles: [{ color: '#ff0000', opacity: 1, weight: 5 }],},
                     
                     addWaypoints: false, 
-                    formatter: new L.Routing.Formatter({
-                    itinerary: function() { return ""; } // Return empty string for itinerary
-    })
+                    createMarker: function() { return null; },
+                    show : false,
                 })
                     .addTo(map);
             }
