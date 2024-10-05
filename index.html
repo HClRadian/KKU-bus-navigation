@@ -154,7 +154,7 @@
         }).addTo(map);
 
         const stations = {
-            "B5:7-11 หลังหอ 8 หลัง":[16.480184, 102.811889],
+     "B5:7-11 หลังหอ 8 หลัง":[16.480184, 102.811889],
     "B4:Golden Living":[16.480341, 102.810397],
     "Y17/Y22:JK เครื่องเขียน":[16.463436, 102.827538],
     "Y27/B21:KKBS-MBA.KKU":[16.474502, 102.825405],
@@ -439,7 +439,24 @@
                     addWaypoints: false, 
                 })
                     .addTo(map);
-                alert(start,"เคมั้ง",end);
+                if (mainSelect.value === "green")
+                {
+                    for (let i = 0; i <= 20; i++;)
+                        {
+                            if (end === blue[i])
+                            {
+                                alert("เปลี่ยนสถานีที่ B30 ");
+                            }
+                            else if (end === yellow[i])
+                                {
+                                alert("เปลี่ยนสถานีที่ Y37 ");
+                                }
+                            else if (end === red[i])
+                            {
+                                alert("เปลี่ยนสถานีที่ R25 ");
+                            }
+                        }
+                }
             }
             
                else {
