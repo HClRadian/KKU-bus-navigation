@@ -481,6 +481,15 @@
         show: false // This hides the instructions panel
     }
                 }).addTo(map);
+                const removeItinerary = () => {
+    const routingContainer = document.querySelector('.leaflet-routing-container');
+    if (routingContainer) {
+        routingContainer.remove(); // ลบออกจาก DOM
+    }
+};
+
+map.on('routingstart', removeItinerary);
+map.on('routesfound', removeItinerary);
                     
             }
             
